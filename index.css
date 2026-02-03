@@ -4,9 +4,9 @@
   box-sizing: border-box;
 }
 
-html, body {
+/* html, body {
   height: 100%;
-}
+} */
 
 .google-sans-700 {
   font-family: "Google Sans", sans-serif;
@@ -147,6 +147,61 @@ header .title {
   color: #0a2a88;
 }
 
+.inloading {
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  gap: 20px;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #03045E;
+  z-index: 100;
+  animation: slide-out-up 1s ease-in-out 3s forwards;
+}
+
+.inloading .left {
+  height: 100px;
+  animation: slide-in-left 2s ease-in-out
+}
+
+.inloading .right {
+  animation: slide-in-right 2s ease-in-out forwards;
+  height: 60px;
+}
+
+@keyframes slide-in-left {
+  0% {
+      transform: translateX(-5vw); /* Starts off-screen to the left */
+      opacity: 0;
+  }
+  100% {
+      transform: translateX(0); /* Ends at its original position */
+      opacity: 1;
+  }
+}
+@keyframes slide-in-right {
+  0% {
+      transform: translateX(5vw); /* Starts off-screen to the left */
+      opacity: 0;
+  }
+  100% {
+      transform: translateX(0); /* Ends at its original position */
+      opacity: 1;
+  }
+}
+@keyframes slide-out-up {
+  0% {
+      transform: translateY(0); /* Starts at its original position */
+      opacity: 1;
+  }
+  100% {
+      transform: translateY(-100vh); /* Moves off-screen upwards */
+      opacity: 0;
+  }
+}
 
 @media (max-width: 1024px) {
   .hero .heroText h1 {
@@ -159,18 +214,29 @@ header .title {
 
 /* Phones */
 @media (max-width: 768px) {
+  .inloading {
+    gap: 5  px;
+  }
+  .inloading .left{
+    height: 50px;
+  }
+  .inloading .right{
+    height: 30px;
+  }
+  header img{
+    height: 100px;
+  }
   body {
     height: 100%;
-    border: solid 1px red;
   }
   header {
-    flex-direction: column;
+    flex-direction: row;
     gap: 6px;
     padding: 12px;
   }
 
   header img {
-    height: 11px;
+    height: 20px;
   }
 
   header .title {
@@ -208,10 +274,11 @@ header .title {
 
 
 @media (max-width: 420px) {
-    body {
-        height: 100%;
-        border: solid 1px red;
-    }
+  header{
+    display: flex;
+    flex-direction: row;
+    
+  }
   .hero .heroText h1 {
     font-size: 11px;
   }

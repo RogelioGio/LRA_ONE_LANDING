@@ -4,9 +4,9 @@
   box-sizing: border-box;
 }
 
-/* html, body {
+html{
   height: 100%;
-} */
+}
 
 .google-sans-700 {
   font-family: "Google Sans", sans-serif;
@@ -214,6 +214,9 @@ header .title {
 
 /* Phones */
 @media (max-width: 768px) {
+  html{
+    height: auto;
+  }
   .inloading {
     gap: 5  px;
   }

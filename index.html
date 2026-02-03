@@ -30,12 +30,12 @@
                     <p class="google-sans-400">One stop portal for every LRA Employee</p>
                 </div>
             </div>
-        <div class="content"> 
+        <div class="content" id="cards"> 
             <div class="card">
                 <img src="./assets/Add friends-amico.svg" alt="LRA Logo">
 
                 <div class="card-body">
-                    <h3 class="card-title google-sans-700">One Portal</h3>
+                    <h3 class="card-title google-sans-700">Social Media Platform</h3>
                     <p class="card-desc google-sans-400">
                         Access all internal LRA systems and services in one centralized platform.
                     </p>
@@ -67,4 +67,70 @@
         </main>
     </div>
 </body>
+<script>
+    const itemsInCard = [
+        {   
+            name: "IT Service Desk", 
+            desc: "Official channel for reporting IT-Related issues and System Concenrns.",
+            image: "./assets/ITServiceDesk.svg"    
+        },
+        {   
+            name: "ISO Registration Form", 
+            desc: "Monitor all given registered forms",
+            image: "./assets/ISOFormRegistration.svg"
+        },
+        {   
+            name: "Document Management System", 
+            desc: "Enables you to store, organize and retrieve official documents electronically",
+            image: "./assets/DocumentManagement.svg"
+        },
+        {
+            name: "Human Resource Information System", 
+            desc: "Manages employee records and HR-Related Transaction",
+            image: "./assets/HumanResourcesManagementSystem.svg"
+        },
+        { 
+            name: "LRA One Tracker", 
+            desc: "Add analytics and automated reported for better decision-making",
+            image: "./assets/LRAOneTracker.svg"
+        },
+        {
+            name: "Property Tagging System", 
+            desc: "Realtime reporting and automated alerts for asset and management",
+            image: "./assets/PropertyTaggingSystem.svg"
+        },
+        {   name: "Planning and Financial Module", 
+            desc: "Integration with automated analytics for better financial insights",
+            image: "./assets/PlanningandFinancialModule.svg"
+        }
+    ]
+
+    const container = document.getElementById('cards');
+
+    itemsInCard.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'card';
+
+        const img = document.createElement('img');
+        img.src = item.image
+        img.alt = 'LRA Logo';
+
+        const cardBody = document.createElement('div');
+        cardBody.className = 'card-body';
+
+        const cardTitle = document.createElement('h3');
+        cardTitle.className = 'card-title google-sans-700';
+        cardTitle.textContent = item.name;
+
+        const cardDesc = document.createElement('p');
+        cardDesc.className = 'card-desc google-sans-400';
+        cardDesc.textContent = item.desc
+
+        cardBody.appendChild(cardTitle);
+        cardBody.appendChild(cardDesc);
+        card.appendChild(img);
+        card.appendChild(cardBody);
+        container.appendChild(card);
+    })
+</script>
 </html>

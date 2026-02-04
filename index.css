@@ -109,8 +109,10 @@ header .title {
   position: relative;
   z-index: 1;
   max-width: 260px;
- padding: 10px;
+  padding: 10px;
+  text-decoration: none;
 }
+
 
 .card::before {
   content: '';
@@ -173,6 +175,12 @@ header .title {
   padding: 10px 20px 20px;
 }
 
+.card:hover .comming-soon {
+  bottom: -100px;
+  opacity: 1;
+  color:blue;
+}
+
 
 .inloading {
   position: fixed;
@@ -197,6 +205,34 @@ header .title {
 .inloading .right {
   animation: slide-in-right 2s ease-in-out forwards;
   height: 60px;
+}
+
+.comming-soon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: all 0.3s ease;  
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.616);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.comming-soon h2 {
+  color: white;
+  margin: 0;
+  font-size: 24px;
+}
+
+.comming-soon p {
+  color: white;
+  margin: 0;
+  font-size: 11px;
 }
 
 @keyframes slide-in-left {

@@ -40,59 +40,100 @@
         {
             name: "Social Media Platform", 
             desc: "Access all internal LRA systems and services in one centralized platform.",
-            image: "./assets/Add friends-amico.svg"    
+            image: "./assets/Add friends-amico.svg",
+            link: "https://portal.lra.gov.ph/",
+            isCommingSoon: false
         },
         {
             name: "Request for Certificate of Employment", 
             desc: " Submit and track requests for employment certificates online.",
-            image: "./assets/Company-amico.svg"
+            image: "./assets/Company-amico.svg",
+            link: "",
+            isCommingSoon: false
         },
         {
             name: "Request for Leave",
             desc: "File leave applications and monitor approval status.",
-            image: "./assets/Resume-amico.svg"
+            image: "./assets/Resume-amico.svg",
+            link: "",
+            isCommingSoon: false
         },
         {   
             name: "IT Service Desk", 
             desc: "Official channel for reporting IT-Related issues and System Concenrns.",
-            image: "./assets/ITServiceDesk.svg"    
+            image: "./assets/ITServiceDesk.svg" , 
+            link: "",
+            isCommingSoon: true
         },
         {   
             name: "ISO Registration Form", 
             desc: "Monitor all given registered forms",
-            image: "./assets/ISOFormRegistration.svg"
+            image: "./assets/ISOFormRegistration.svg",
+            link: "",
+            isCommingSoon: true
         },
         {   
             name: "Document Management System", 
             desc: "Enables you to store, organize and retrieve official documents electronically",
-            image: "./assets/DocumentManagement.svg"
+            image: "./assets/DocumentManagement.svg",
+            link: "",
+            isCommingSoon: true
         },
         {
             name: "Human Resource Information System", 
             desc: "Manages employee records and HR-Related Transaction",
-            image: "./assets/HumanResourcesManagementSystem.svg"
+            image: "./assets/HumanResourcesManagementSystem.svg",
+            link: "",
+            isCommingSoon: true
         },
         { 
             name: "LRA One Tracker", 
             desc: "Add analytics and automated reported for better decision-making",
-            image: "./assets/LRAOneTracker.svg"
+            image: "./assets/LRAOneTracker.svg",
+            link: "",
+            isCommingSoon: true
         },
         {
             name: "Property Tagging System", 
             desc: "Realtime reporting and automated alerts for asset and management",
-            image: "./assets/PropertyTaggingSystem.svg"
+            image: "./assets/PropertyTaggingSystem.svg",
+            link: "",
+            isCommingSoon: true
         },
         {   name: "Planning and Financial Module", 
             desc: "Integration with automated analytics for better financial insights",
-            image: "./assets/PlanningandFinancialModule.svg"
+            image: "./assets/PlanningandFinancialModule.svg",
+            link: "",
+            isCommingSoon: true
         }
     ]
 
     const container = document.getElementById('cards');
 
     itemsInCard.forEach(item => {
-        const card = document.createElement('div');
+        const card = document.createElement('a');
         card.className = 'card';
+        
+        if(item.link) {
+            card.href = item.link;
+            card.target = "_blank";
+        } else {
+            card.style.cursor = 'default';
+        }
+
+
+
+        if(item.isCommingSoon) {
+          const commingSoon = document.createElement('div');
+          commingSoon.className = 'comming-soon';
+          commingSoon.innerHTML = `
+            <h2 class="google-sans-700">COMING SOON</h2>
+            <p class="google-sans-400">Stay tuned for updates!</p>
+          `;
+
+          card.appendChild(commingSoon);
+
+        }
 
         const img = document.createElement('img');
         img.src = item.image
